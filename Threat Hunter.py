@@ -62,7 +62,6 @@ class OllamaService:
                 data = json.loads(response.read().decode('utf-8'))
                 models = [m.get('name', '') for m in data.get('models', [])]
                 
-            # Check for exact or base match
             if any(self.model in m or m.startswith(self.model.split(':')[0]) for m in models):
                 return True
                 
